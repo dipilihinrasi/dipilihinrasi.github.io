@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dipilihinrasi — barang harian murah yang udah aku pilihin</title>
+<meta name="description" content="Barang harian yang murah, kepake, dan gak bikin nyesel. Dipilihin sama Rasi.">
+<style>
+  :root {
+    --bg: #fdf8f3;
+    --card: #ffffff;
+    --ink: #2b2420;
+    --muted: #7a6e66;
+    --body: #5c514a;
+    --accent: #e8735a;
+    --accent-soft: #fde5dc;
+    --line: #f0e4da;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+  .narrow { max-width: 720px; }
+
+  /* HERO */
+  header { padding: 56px 0 32px; text-align: center; }
+  .avatar {
+    width: 88px; height: 88px; border-radius: 50%;
+    margin: 0 auto 14px; background: var(--accent-soft);
+    display: grid; place-items: center; font-size: 40px;
+    overflow: hidden; border: 3px solid #fff; box-shadow: 0 4px 14px rgba(0,0,0,.08);
+  }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .handle { font-size: 14px; font-weight: 700; margin-bottom: 20px; }
+  h1 { font-size: clamp(30px, 7.5vw, 46px); line-height: 1.15; font-weight: 800; letter-spacing: -0.025em; max-width: 620px; margin: 0 auto 16px; }
+  .sub { color: var(--body); max-width: 460px; margin: 0 auto 28px; font-size: 17px; }
+  .sub strong { color: var(--ink); }
+  .cta { display: inline-block; padding: 15px 30px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 16px; font-weight: 700; text-decoration: none; }
+
+  /* SARING */
+  .saring { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 28px 22px; margin: 24px 0 48px; }
+  .saring h2 { font-size: clamp(20px, 5vw, 24px); line-height: 1.3; margin-bottom: 18px; }
+  .saring ul { list-style: none; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .saring li { background: var(--bg); border-radius: 14px; padding: 16px 18px; font-size: 14px; color: var(--body); }
+  .saring b { display: block; margin-bottom: 4px; font-size: 15px; color: var(--ink); }
+  .saring b span { color: var(--accent); }
+
+  /* KATEGORI */
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .pilihan-title { font-size: clamp(24px, 6vw, 32px); line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 18px; }
+  .tabs { display: flex; gap: 8px; overflow-x: auto; padding: 10px 0 6px; margin-bottom: 8px; position: sticky; top: 0; background: var(--bg); z-index: 5; }
+  .tab { flex: none; border: 1px solid var(--line); background: #fff; color: var(--ink); padding: 10px 16px; border-radius: 999px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .tab.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .cat-desc { color: var(--muted); margin: 6px 0 18px; min-height: 1.6em; font-size: 15px; }
+
+  /* GRID */
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); margin-bottom: 56px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+  .media iframe { display: block; width: 100%; height: 500px; border: 0; background: #fff; }
+  .media .photo { aspect-ratio: 1 / 1; background: var(--accent-soft); display: grid; place-items: center; font-size: 48px; }
+  .media .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .body { padding: 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .name { font-weight: 700; font-size: 15px; line-height: 1.35; }
+  .fit { font-size: 13px; color: var(--body); }
+  .price { font-weight: 800; font-size: 16px; margin-top: auto; padding-top: 4px; }
+  .btns { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+  .btn { display: block; text-align: center; padding: 11px 4px; border-radius: 10px; font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+  .btn.shopee { background: var(--accent); color: #fff; }
+  .btn.tokped { background: #fff; color: var(--ink); border: 1.5px solid var(--ink); padding: 10px 4px; }
+  .btn:hover { filter: brightness(.95); }
+  .nolink { font-size: 12px; color: var(--muted); text-align: center; padding: 6px 0; }
+  .empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 40px 0; }
+
+  /* FINAL */
+  .final { text-align: center; padding: 24px 0 56px; }
+  .final p { max-width: 520px; margin: 0 auto 24px; font-size: clamp(20px, 5vw, 26px); line-height: 1.4; font-weight: 800; }
+  footer { border-top: 1px solid var(--line); text-align: center; font-size: 12px; color: var(--muted); padding: 20px 20px 40px; }
+</style>
+</head>
+<body>
+
+<div class="wrap narrow">
+  <header>
+    <!-- Ganti 🙋‍♀️ dengan foto Rasi: <img src="images/rasi.jpg" alt="Rasi"> -->
+    <div class="avatar">🙋‍♀️</div>
+    <div class="handle">@dipilihinrasi</div>
+    <h1>Hidup lebih rapi dan praktis, gak perlu nunggu gaji naik.</h1>
+    <p class="sub">Ini semua barang harian yang udah aku pilihin. <strong>Murah, kepake, dan gak bikin nyesel.</strong></p>
+    <a class="cta" href="#pilihan">Lihat semua pilihan ↓</a>
+  </header>
+</div>
+
+<div class="wrap">
+  <div class="saring">
+    <h2>Gak semua barang viral masuk sini.</h2>
+    <ul>
+      <li><b><span>✓</span> Kepake beneran</b>Nyelesain masalah kecil yang tiap hari bikin ribet.</li>
+      <li><b><span>✓</span> Harganya masuk akal</b>Gak perlu nunggu gajian kedua.</li>
+      <li><b><span>✓</span> Aman dibeli</b>Rating, jumlah terjual, dan ulasan pembelinya meyakinkan.</li>
+    </ul>
+  </div>
+
+  <section id="pilihan">
+    <p class="eyebrow">Pilihan</p>
+    <h2 class="pilihan-title">Semua barang yang udah lolos 3 saringan.</h2>
+    <nav class="tabs" id="tabs"></nav>
+    <p class="cat-desc" id="catDesc"></p>
+    <div class="grid" id="grid"></div>
+  </section>
+</div>
+
+<div class="wrap narrow">
+  <div class="final">
+    <p>Hidup kamu gak harus langsung sempurna. Mulai dari satu barang yang bikin hari ini sedikit lebih gampang.</p>
+    <a class="cta" href="#pilihan">Lihat semua pilihan ↑</a>
+  </div>
+</div>
+
+<footer>Konten dan persona Rasi dibuat dengan AI · Halaman ini berisi link affiliate</footer>
+
+<script src="products.js"></script>
+<script>
+  const CATEGORIES = [
+    { id: "semua",     label: "✨ Semua",            emoji: "✨", desc: "Semua barang yang udah lolos 3 saringan." },
+    { id: "kamar",     label: "🛏️ Kamar & Organizer", emoji: "🛏️", desc: "Biar barang gak numpuk di mana-mana." },
+    { id: "dapur",     label: "🍳 Dapur",            emoji: "🍳", desc: "Masak lebih cepet, cuci piring lebih dikit." },
+    { id: "perawatan", label: "🧴 Perawatan Diri",   emoji: "🧴", desc: "Basic yang bener, tanpa harus mahal." },
+    { id: "kerja",     label: "💻 Kerja & Harian",   emoji: "💻", desc: "Biar hari kerja kamu sedikit lebih ringan." },
+  ];
+
+  const tabsEl = document.getElementById("tabs");
+  const gridEl = document.getElementById("grid");
+  const descEl = document.getElementById("catDesc");
+
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const emojiFor = (cat) => (CATEGORIES.find((c) => c.id === cat) || CATEGORIES[0]).emoji;
+
+  // Ubah link IG apa pun (post / reel, dengan ?igsh=...) jadi link embed resmi.
+  function igEmbed(link) {
+    const m = String(link || "").match(/instagram\.com\/(?:[^/]+\/)?(p|reel|reels|tv)\/([A-Za-z0-9_-]+)/);
+    if (!m) return "";
+    const type = m[1] === "reels" ? "reel" : m[1];
+    return `https://www.instagram.com/${type}/${m[2]}/embed/`;
+  }
+
+  const safeUrl = (u) => /^https?:\/\//i.test(String(u || "")) ? u : "";
+
+  function media(p) {
+    const embed = igEmbed(p.ig);
+    if (embed) {
+      return `<iframe src="${esc(embed)}" title="Post Instagram: ${esc(p.nama)}" loading="lazy" scrolling="no" allowtransparency="true"></iframe>`;
+    }
+    const img = p.foto
+      ? `<img src="${esc(p.foto)}" alt="${esc(p.nama)}" loading="lazy" onerror="this.parentNode.textContent='${emojiFor(p.kategori)}'">`
+      : emojiFor(p.kategori);
+    return `<div class="photo">${img}</div>`;
+  }
+
+  function buttons(p) {
+    const s = safeUrl(p.shopee), t = safeUrl(p.tokopedia);
+    if (!s && !t) return `<div class="nolink">Link belum diisi</div>`;
+    return `<div class="btns">
+      ${s ? `<a class="btn shopee" href="${esc(s)}" target="_blank" rel="sponsored nofollow noopener">Lihat di Shopee</a>` : ""}
+      ${t ? `<a class="btn tokped" href="${esc(t)}" target="_blank" rel="sponsored nofollow noopener">Lihat di Tokopedia</a>` : ""}
+    </div>`;
+  }
+
+  function render(catId) {
+    const cat = CATEGORIES.find((c) => c.id === catId) || CATEGORIES[0];
+    descEl.textContent = cat.desc;
+    [...tabsEl.children].forEach((b) => b.classList.toggle("active", b.dataset.id === cat.id));
+
+    const items = cat.id === "semua" ? PRODUCTS : PRODUCTS.filter((p) => p.kategori === cat.id);
+    if (!items.length) {
+      gridEl.innerHTML = '<p class="empty">Belum ada pilihan di kategori ini. Lagi aku saring dulu 🔍</p>';
+      return;
+    }
+    gridEl.innerHTML = items.map((p) => `
+      <article class="card">
+        <div class="media">${media(p)}</div>
+        <div class="body">
+          <div class="name">${esc(p.nama)}</div>
+          <div class="fit">Cocok buat kamu kalau ${esc(p.cocok)}.</div>
+          <div class="price">${esc(p.harga)}</div>
+          ${buttons(p)}
+        </div>
+      </article>`).join("");
+  }
+
+  CATEGORIES.forEach((c) => {
+    const b = document.createElement("button");
+    b.className = "tab";
+    b.dataset.id = c.id;
+    b.textContent = c.label;
+    b.onclick = () => { history.replaceState(null, "", "#" + c.id); render(c.id); };
+    tabsEl.appendChild(b);
+  });
+
+  // Link langsung ke kategori, misal: .../#dapur
+  const start = location.hash.slice(1);
+  render(CATEGORIES.some((c) => c.id === start) ? start : "semua");
+</script>
+</body>
+</html>
