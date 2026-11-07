@@ -26,7 +26,7 @@ const PRODUCTS = [
     harga: "cek harga terbaru di Shopee",
     ig: "",
     foto: "images/vacuum-bag.jpg",
-    shopee: "https://s.shopee.co.id/BVCNYWEKq",
+    shopee: "",
     tokopedia: "",
   },
   {
