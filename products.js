@@ -21,6 +21,16 @@
 const PRODUCTS = [
   {
     kategori: "kamar",
+    nama: "Vacuum bag pakaian",
+    cocok: "lemari penuh sama jaket, selimut, dan baju yang jarang dipake",
+    harga: "cek harga terbaru di Shopee",
+    ig: "",
+    foto: "images/vacuum-bag.jpg",
+    shopee: "https://s.shopee.co.id/BVCNYWEKq",
+    tokopedia: "",
+  },
+  {
+    kategori: "kamar",
     nama: "[Contoh] Rak susun serbaguna",
     cocok: "barang di meja atau kolong kasur numpuk terus",
     harga: "Rp—",
