@@ -24,7 +24,7 @@ const PRODUCTS = [
     nama: "Vacuum bag pakaian",
     cocok: "lemari penuh sama jaket, selimut, dan baju yang jarang dipake",
     harga: "cek harga terbaru di Shopee",
-    ig: "",
+    ig: "https://www.instagram.com/reel/Dfc8szBuXmi/",
     foto: "images/vacuum-bag.jpg",
     shopee: "https://s.shopee.co.id/5q9Z8OUkNU",
     tokopedia: "",
