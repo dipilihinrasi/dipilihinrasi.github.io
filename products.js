@@ -31,6 +31,16 @@ const PRODUCTS = [
   },
   {
     kategori: "kamar",
+    nama: "Pompa galon elektrik (2 lubang + lampu malam)",
+    cocok: "males ngangkat galon, apalagi pas haus tengah malam",
+    harga: "Rp156.000",
+    ig: "https://www.instagram.com/reel/DfkkZIIuaGI/",
+    foto: "images/pompa-galon.jpg",
+    shopee: "https://s.shopee.co.id/3g59HZvi9i",
+    tokopedia: "",
+  },
+  {
+    kategori: "kamar",
     nama: "[Contoh] Rak susun serbaguna",
     cocok: "barang di meja atau kolong kasur numpuk terus",
     harga: "Rp—",
