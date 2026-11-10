@@ -23,10 +23,10 @@ const PRODUCTS = [
     kategori: "kamar",
     nama: "Vacuum bag pakaian",
     cocok: "lemari penuh sama jaket, selimut, dan baju yang jarang dipake",
-    harga: "cek harga terbaru di Shopee",
-    ig: "https://www.instagram.com/reel/Dfc8szBuXmi/",
+    harga: "Rp35.820 (Shopee, cek ukuran)",
+    ig: "https://www.instagram.com/reel/Dfkwvdnu3mM/",
     foto: "images/vacuum-bag.jpg",
-    shopee: "https://s.shopee.co.id/5q9Z8OUkNU",
+    shopee: "https://s.shopee.co.id/7KyRlbECCf",
     tokopedia: "",
   },
   {
