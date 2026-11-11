@@ -40,6 +40,16 @@ const PRODUCTS = [
     tokopedia: "",
   },
   {
+    kategori: "kerja",
+    nama: "Kipas saku ultra tipis Goojodoq (22 mm)",
+    cocok: "gampang gerah pas naik kereta, antre, atau jalan siang",
+    harga: "Rp79.900",
+    ig: "https://www.instagram.com/reel/Dfl7MBFOjal/",
+    foto: "images/kipas-saku.jpg",
+    shopee: "https://s.shopee.co.id/6VPLUos0r9",
+    tokopedia: "",
+  },
+  {
     kategori: "kamar",
     nama: "[Contoh] Rak susun serbaguna",
     cocok: "barang di meja atau kolong kasur numpuk terus",
