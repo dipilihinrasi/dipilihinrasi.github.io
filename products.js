@@ -34,9 +34,9 @@ const PRODUCTS = [
     nama: "Pompa galon elektrik (2 lubang + lampu malam)",
     cocok: "males ngangkat galon, apalagi pas haus tengah malam",
     harga: "Rp156.000",
-    ig: "https://www.instagram.com/reel/DfkkZIIuaGI/",
+    ig: "https://www.instagram.com/reel/Dfl1LyyuzTW/",
     foto: "images/pompa-galon.jpg",
-    shopee: "https://s.shopee.co.id/3g59HZvi9i",
+    shopee: "https://s.shopee.co.id/2VtCfujMkG",
     tokopedia: "",
   },
   {
