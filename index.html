@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>dipilihinrasi — barang harian murah yang udah aku pilihin</title>
 <meta name="description" content="Barang harian yang murah, kepake, dan gak bikin nyesel. Dipilihin sama Rasi.">
+<!-- Meta Pixel · dataset "Rasi - Website" (1071547639243674), portfolio dipilihinrasi -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1071547639243674');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1071547639243674&ev=PageView&noscript=1"></noscript>
+<!-- End Meta Pixel -->
 <style>
   :root {
     --bg: #fdf8f3;
@@ -198,6 +210,18 @@
     b.textContent = c.label;
     b.onclick = () => { history.replaceState(null, "", "#" + c.id); render(c.id); };
     tabsEl.appendChild(b);
+  });
+
+  // Meta Pixel: catat klik tombol toko sebagai event "KlikAffiliate".
+  // Pembelian di Shopee/Tokopedia tidak terlihat oleh Pixel; ini sinyal terdalam yang bisa dibaca.
+  gridEl.addEventListener("click", (e) => {
+    const a = e.target.closest("a.btn");
+    if (!a || typeof fbq !== "function") return;
+    const card = a.closest(".card");
+    fbq("trackCustom", "KlikAffiliate", {
+      toko: a.classList.contains("tokped") ? "tokopedia" : "shopee",
+      produk: card ? card.querySelector(".name")?.textContent.trim() : "",
+    });
   });
 
   // Link langsung ke kategori, misal: .../#dapur
